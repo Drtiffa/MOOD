@@ -1,0 +1,462 @@
+@font-face {
+    font-family: "DKBuntaro";
+    src: url("./fonts/DKBuntaro.ttf");
+}
+@font-face {
+    font-family: "HILVCCBoing-Bold";
+    font-weight: bold;
+    src: url("./fonts/HILVCC+Boing-Bold.ttf");
+}
+@font-face {
+    font-family: "HILVCCBoing-Light";
+    src: url("./fonts/HILVCC+Boing-Light.ttf");
+} 
+
+$color-purple : #4c47a5; 
+$color-white : #ffffff; 
+$color-black : #000000;
+$color-green : #9fde3e;
+$color-grey : #adabab;
+
+@mixin button {
+    font-family: "HILVCCBoing-Bold";
+    padding: 5px 40px;
+    font-size: 18px;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    background-color: $color-white;
+    border: 3px solid $color-purple;
+    color: $color-purple;
+    cursor: pointer;
+    &:hover {
+        background-color: $color-purple;
+        color: $color-white;
+    }
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(230, 230, 230, 0.5);
+}
+
+body {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $color-purple;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: $color-white; 
+}
+
+.mood_main {
+    position: relative;
+}
+
+.mood_nav {
+    display: flex;
+    width: 98%;
+    margin: 10px auto;
+    align-items: center;
+    .mood_logo {
+        font-family: "DKBuntaro";
+        color: $color-purple;
+        font-size: 110px;
+        width: 40%;
+    }
+    .mood_text-intro {
+        font-family: "DKBuntaro";
+        color: $color-purple;
+        font-size: 20px; 
+        width: 40%;
+        text-align: center;
+    }
+    .mood_login {
+        width: 40%;
+        text-align: right;
+        .mood_login-button {
+            @include button;
+        }
+    }
+}
+
+
+//  CREATE AVATAR  //
+.mood_content {
+    min-height: 80vh;
+    // block left
+    .mood_block-left {
+        width: 50%;
+        position: relative;
+        height: 20em;
+        line-height: 20em;
+        white-space: nowrap;
+        float: left;
+        .left_options {
+            display: flex;
+            list-style: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            &:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                top: 185px;
+                border-bottom: 2px solid $color-grey;
+            }
+            .left_option {
+                font-family: "HILVCC+Boing-Bold";
+                margin: 0 25px;
+                text-transform: uppercase;     
+                color: $color-grey;   
+                cursor: pointer;
+                font-size: 20px;
+                &.active {
+                    color: $color-black;
+                }
+            }
+        }
+
+        .left_choice {
+            line-height: 0;
+            white-space: initial;
+            position: absolute;
+            width: 80%;
+            top: 65%;
+            left: 10%;
+            .choice_liste {
+                width: 100%;
+                margin: 0 auto;
+                text-align: center;
+                &:before {
+                    display: table;
+                    content: "";
+                    line-height: 0;
+                }
+                .choice_element {
+                    display: inline-block;
+                    margin: 15px 1.4% 11%;
+                    width: 15%;
+                    vertical-align: top;
+                    padding: 0 12px;
+                    cursor: pointer;
+                    &:hover {
+                        transform: scale(1.3);
+                    }
+                }
+                .element_7 {
+                    img {
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    }
+    // block right
+    .mood_block-right {
+        width: 50%;
+        float: right;
+        margin-top: 5%;
+        .right_elements {
+            width: 45%;
+            margin: 0 auto;   
+            .right_element {
+                position: relative;
+                .right_image {
+                    // display: none;
+                    position: absolute;
+                } 
+            } 
+            .element-shape {
+                .right_image {
+                    padding-top: 20%;
+                }
+            }
+            .element-face {
+                width: 70%;
+                .right_image {
+                    left: 20%;
+                    padding-top: 70%;
+                }
+                #element_7 {
+                    width: 80%;
+                    left: 30%;
+                    padding-top: 60%;
+                }
+            }
+            .element-hair {
+                #element_13, #element_14 {
+                    padding-top: 10%;
+                }
+                #element_15 {
+                    padding-top: 22%;
+                }
+                #element_18 {
+                    padding-top: 40%;
+                }
+            }
+            .element-accessories {
+                .right_image {
+                    padding-top: 40%;
+                }
+                #element_20 {
+                    padding-top: 0;
+                }
+                #element_23 {
+                    padding-top: 85%;
+                }
+                #element_24 {
+                    padding-top: 100%;
+                    width: 60%;
+                    left: 20%;
+                }
+                #element_25{
+                    padding-top: 90%;
+                    width: 80%;
+                    left: 10%;
+                }
+            }
+        }
+    }
+
+    .mood_button-download {
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,0);
+        position: absolute;
+        .button_download {
+            font-family: "DKBuntaro";
+            font-style: normal;
+            font-weight: bold;
+            padding: 10px 40px;
+            font-size: 25px;
+            text-transform: uppercase;
+            background-color: $color-white;
+            border: 3px solid $color-purple;
+            color: $color-purple;
+            cursor: pointer;
+            &:hover {
+                background-color: $color-purple;
+                color: $color-white;
+            }
+        }
+    }
+}
+
+//  POPIN BUTTON SAVE AVATAR  //
+
+.modal_content {
+    font-family: "HILVCCBoing-Light";
+    text-align: center;
+    .modal_close {
+        float: right;
+        margin-right: 3%;
+        margin-top: -17px;
+        font-family: "HILVCCBoing-Bold";
+        cursor: pointer;
+        &:hover {
+            color: $color-purple;
+        }
+    }
+    h1 {
+        font-family: "DKBuntaro";
+        color: $color-purple;
+        font-size: 35px;
+        margin-top: 25px;
+    }
+    .avatar_download {
+        text-align: left;
+        padding: 0 5%;
+        letter-spacing: 1px;
+        > p {
+            margin: 10px 0;
+        }
+        .url {
+            color: $color-purple;
+        }
+        .svg, .png {
+            cursor: pointer;
+            font-family: "HILVCCBoing-Bold";
+            color: $color-purple;
+        } 
+    }
+}
+
+//  LOGIN  //
+
+.login_block-left {
+    width: 50%;
+    float: left;
+    position: relative;
+    padding-top: 40%;
+    .forget-password {
+        font-size: 11px;
+        text-align: right;
+        padding-top: 5%;
+        span {
+            cursor: pointer;
+            &:hover {
+                color: $color-purple;
+                font-size: 10px;
+                font-family: "HILVCCBoing-Bold";
+            }
+        }
+    }
+}
+
+.login_block-right {
+    width: 50%;
+    float: right;
+    position: relative;
+    padding-top: 40%;
+}
+
+.login_forget-password {
+    width: 50%;
+    float: right;
+    position: relative;
+    padding-top: 30%;
+}
+
+.left_content, 
+.right_content,
+.forget-password_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    .left_title,
+    .right_title,
+    .forget-password_title {
+        font-family: "HILVCCBoing-Light";
+        font-size: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: -25px;
+    }
+    .left_form, 
+    .right_form,
+    .forget-password_form {
+        font-family: "HILVCCBoing-Light";
+        .left-form_element, 
+        .right-form_element,
+        .forget-form_element {
+            display: grid;
+            padding: 15px 0;
+            input {
+                border: none;
+                border-bottom: 1px solid black;
+                margin-top: 10px;
+                padding: 10px 0 5px;
+                width: 100%;
+                background: transparent;
+            }
+        }
+    }
+    .left_button-signIn, 
+    .right_button-signUp, 
+    .forget_button-submit {
+        padding-top: 15%;
+        text-align: center;
+        .button_signIn, 
+        .button_signUp,
+        .button_submit {
+            @include button;
+            padding: 5px 70px;
+        }
+    }
+    .left_link-create-account {
+        padding-top: 5%;
+        font-family: "HILVCCBoing-Light";
+        text-align: center;
+        p {
+            cursor: pointer;
+            &:hover {
+                color: $color-purple;
+            }
+        }
+    }
+}
+
+
+/* RESPONSIVE DESIGN 
+______________________*/
+// Tablet
+@media screen and (max-width: 1024px) {
+
+    // #background {
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 50%;
+    // }
+    // .mood_content {
+    //     min-height: 95vh;
+    //     .mood_block-left {
+    //         width: 100%;
+    //         height: 25vh;
+    //         float: none;
+    //         margin-top: -10%;
+    //         .left_options {
+    //             .left_option {
+    //                 font-size: 25px;
+    //             }
+    //         }
+    //         .left_choice {
+    //             width: 65%;
+    //             left: 18%;
+    //         }
+    //     }
+    //     .mood_block-right {
+    //         width: 60%;
+    //         float: none;
+    //         margin: 35% auto 0;
+    //     }
+    // }
+    .left_options {
+        min-width: 75%;
+        .left_option {
+            margin: 0 10px !important;
+        }
+    }
+    .mood_block-right {
+        margin-top: 10%;
+        .right_elements {
+            width: 50% !important;
+        }
+    }
+}
+
+// Mobile
+@media screen and (max-width: 768px) {
+
+}
